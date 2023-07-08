@@ -1,10 +1,15 @@
-var resultado = document.getElementById('resultado');
-var reset = document.getElementById('reset');
-var suma = document.getElementById('suma');
-var resta = document.getElementById('resta');
-var multiplicacion = document.getElementById('multiplicacion');
-var division = document.getElementById('division');
-var igual = document.getElementById('igual');
+const body = document.querySelector('body');
+const resultado = document.getElementById('resultado');
+const reset = document.getElementById('reset');
+const suma = document.getElementById('suma');
+const resta = document.getElementById('resta');
+const multiplicacion = document.getElementById('multiplicacion');
+const division = document.getElementById('division');
+const igual = document.getElementById('igual');
+var operandoa;
+var operandob;
+var operacion;
+
 var uno = document.getElementById('uno');
 var dos = document.getElementById('dos');
 var tres = document.getElementById('tres');
@@ -15,3 +20,108 @@ var siete = document.getElementById('siete');
 var ocho = document.getElementById('ocho');
 var nueve = document.getElementById('nueve');
 var cero = document.getElementById('cero');
+var toggle = document.getElementById('container')
+var bodyToggle = document.getElementById('toggle')
+var titulos = document.querySelector('titulo')
+
+
+
+function cambiarModo(){
+    body.classList.toggle('active');
+    toggle.classList.toggle('active');
+    titulos.classList.toggle('active');
+    bodyToggle.classList.toggle('active');  
+}
+
+toggle.addEventListener("click", cambiarModo)
+
+
+uno.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "1";
+}
+dos.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "2";
+}
+tres.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "3";
+}
+cuatro.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "4";
+}
+cinco.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "5";
+}
+seis.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "6";
+}
+siete.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "7";
+}
+ocho.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "8";
+}
+nueve.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "9";
+}
+cero.onclick = function(e){
+    resultado.textContent = resultado.textContent  + "0";
+}
+reset.onclick = function(e){
+    resultado.textContent = "";
+}
+reset.onclick = function(e){
+    resetear();
+}
+suma.onclick = function(e){
+    operandoa = resultado.textContent;
+    operacion = "+";
+    limpiar();
+}
+resta.onclick = function(e){
+    operandoa = resultado.textContent;
+    operacion = "-";
+    limpiar();
+}
+multiplicacion.onclick = function(e){
+    operandoa = resultado.textContent;
+    operacion = "*";
+    limpiar();
+}
+division.onclick = function(e){
+    operandoa = resultado.textContent;
+    operacion = "/";
+    limpiar();
+}
+igual.onclick = function(e){
+    operandob = resultado.textContent;
+    resolver();
+}
+function limpiar(){
+    resultado.textContent = "";
+  }
+function resetear(){
+    resultado.textContent = "";
+    operandoa = 0;
+    operandob = 0;
+}
+
+function resolver(){
+    var res = 0;
+    switch(operacion){
+      case "+":
+        res = parseFloat(operandoa) + parseFloat(operandob);
+        break;
+      case "-":
+          res = parseFloat(operandoa) - parseFloat(operandob);
+          break;
+      case "*":
+        res = parseFloat(operandoa) * parseFloat(operandob);
+        break;
+      case "/":
+        res = parseFloat(operandoa) / parseFloat(operandob);
+        break;
+    }
+    resetear();
+    resultado.textContent = res;
+  }
+
