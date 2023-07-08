@@ -32,11 +32,10 @@ body{
   border-radius: 25px;
 }
 
-
-
 .calculadora-box{
   text-align: center;
 }
+
 
 .calculadora{
   margin:0 auto;
@@ -115,10 +114,8 @@ body h1.active{
   color: #212123;
 }
 
-@media (max-width: 414px) {
-  
+@media (max-width: 415px){
   .calculadora-box{
-    margin: 500px 0 1000px 0;
+      margin: 500px 0 1000px 0;
   }
-
 }
