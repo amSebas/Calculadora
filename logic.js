@@ -1,15 +1,18 @@
 const body = document.querySelector('body');
+const titulos = document.querySelectorAll('.titulo')
 const resultado = document.getElementById('resultado');
+const borrado = document.getElementById('borrado')
 const reset = document.getElementById('reset');
 const suma = document.getElementById('suma');
 const resta = document.getElementById('resta');
 const multiplicacion = document.getElementById('multiplicacion');
 const division = document.getElementById('division');
 const igual = document.getElementById('igual');
+const toggle = document.getElementById('container')
+const bodyToggle = document.getElementById('toggle')
 var operandoa;
 var operandob;
 var operacion;
-
 var uno = document.getElementById('uno');
 var dos = document.getElementById('dos');
 var tres = document.getElementById('tres');
@@ -20,20 +23,15 @@ var siete = document.getElementById('siete');
 var ocho = document.getElementById('ocho');
 var nueve = document.getElementById('nueve');
 var cero = document.getElementById('cero');
-var toggle = document.getElementById('container')
-var bodyToggle = document.getElementById('toggle')
-var titulos = document.querySelector('titulo')
-
-
-
-function cambiarModo(){
-    body.classList.toggle('active');
-    toggle.classList.toggle('active');
-    titulos.classList.toggle('active');
-    bodyToggle.classList.toggle('active');  
-}
 
 toggle.addEventListener("click", cambiarModo)
+
+function cambiarModo(){ 
+    body.classList.toggle('active');
+    toggle.classList.toggle('active');
+    bodyToggle.classList.toggle('active');
+    titulos.classList.toggle('active'); 
+}
 
 
 uno.onclick = function(e){
@@ -66,9 +64,11 @@ nueve.onclick = function(e){
 cero.onclick = function(e){
     resultado.textContent = resultado.textContent  + "0";
 }
-reset.onclick = function(e){
-    resultado.textContent = "";
+
+borrado.onclick = function(e){
+    borrarUnNumero()
 }
+
 reset.onclick = function(e){
     resetear();
 }
@@ -99,6 +99,13 @@ igual.onclick = function(e){
 function limpiar(){
     resultado.textContent = "";
   }
+
+function borrarUnNumero(borrado){
+    let string = resultado.textContent;
+    result = string.slice(0, -1);
+    return resultado.innerHTML = result;
+}
+
 function resetear(){
     resultado.textContent = "";
     operandoa = 0;

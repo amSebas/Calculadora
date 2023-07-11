@@ -32,7 +32,7 @@ body{
   border-radius: 25px;
 }
 
-.calculadora-box{
+.contenedor{
   text-align: center;
 }
 
@@ -66,6 +66,19 @@ body{
 
 .operadores{
   background: #f79907; 
+}
+
+.contenedor-superior{
+  display: flex;
+  justify-content: space-between;
+}
+
+#borrado{
+  width: 100px;
+  height: 50px;
+  background: #212123;
+  color: #fff;
+  border-radius: 10px;
 }
 
 .calculadora button.funciones{
@@ -110,12 +123,12 @@ body.active{
   background-image: url(/img/BG.jpeg);
 }
 
-body h1.active{
+.contenedor #titulo.active{
   color: #212123;
 }
 
-@media (max-width: 415px){
-  .calculadora-box{
-      margin: 500px 0 1000px 0;
+@media (max-width: 414px){
+  .contenedor{
+    margin: 500px 0 915px 0;
   }
-}
+} 
